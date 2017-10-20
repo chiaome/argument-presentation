@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <style>
+    #container {
+      width: 100%;
+      margin: 0 auto;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script type="text/javascript">
+      var chart = Highcharts.chart('container', {
+
+      title: {
+          text: '<span style="font-size:30px; font-weight:900">The overall scores given by Navigant Research</span>'
+      },
+
+      subtitle: {
+          text: ''
+      },
+
+      xAxis: {
+          categories: ['Ford', 'General Motors', 'Renault-Nissan Alliance', 'Daimler', 'Volkswagen Group', 'BMW', 'Waymo', 'Volvo', 'Delphi', 'Hyundai Motor Group', 'PSA', 'Tesla', 'Toyota', 'ZF', 'Honda', 'Uber']
+      },
+      credits: {
+        enabled: false
+    },
+      plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y:.1f}'
+            }
+        }
+    },
+
+      series: [{
+          type: 'column',
+          colorByPoint: true,
+          data: [85.0, 84.8, 82.0, 77.7, 75.9, 75.2, 73.4, 73.4, 70.7, 66.4, 65.3, 64.5, 64.2, 64, 55.1, 54.5],
+          showInLegend: false
+      }]
+
+    });
+  </script>
+</html>

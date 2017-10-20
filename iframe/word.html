@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <style media="screen">
+    #container {
+      min-width: 100%;
+      max-width: 800px;
+      margin: 0 auto
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script type="text/javascript">
+var data = [
+  {name:"vision", weight: 0.5},
+  {name:"market strategy", weight: 0.5},
+  {name:"partners", weight: 0.5},
+  {name:"production strategy", weight: 0.5},
+  {name:"technology", weight: 0.5},
+  {name:"product capability", weight: 0.5},
+  {name:"sales marketing  distribution", weight: 0.5},
+  {name:"product quality and reliability", weight: 0.5},
+  {name:"staying power", weight: 0.5}
+];
+console.log(data);
+Highcharts.chart('container', {
+  series: [{
+      type: 'wordcloud',
+      data: data
+  }],
+  credits: {
+        enabled: false
+    },
+  title: {
+      text: '<span style="font-size:30px; font-weight:900">criterias</span>'
+  }
+});
+  </script>
+</html>

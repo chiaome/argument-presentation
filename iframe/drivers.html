@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+  </head>
+  <body>
+    <div id="container" style="min-width: 300px; height: 500px; margin: 0 auto"></div>
+
+  </body>
+  <script type="text/javascript">
+  Highcharts.chart('container', {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: '<span style="font-size:20px; font-weight:900">Number of taxi drivers in China\'s cities from 2006 to 2016</span>'
+  },
+  subtitle: {
+      text: 'Source: <a href="https://www.statista.com/">The Statistics Portal</a>'
+  },
+  xAxis: {
+      type: 'category',
+      labels: {
+          rotation: 0,
+          style: {
+              fontSize: '13px',
+              fontFamily: 'Verdana, sans-serif'
+          }
+      }
+  },
+  yAxis: {
+      min: 0,
+      title: {
+          text: 'number'
+      }
+  },
+  credits: {
+    enabled: false
+},
+  legend: {
+      enabled: false
+  },
+  tooltip: {
+      pointFormat: '<b>{point.y:.1f}'
+  },
+  series: [{
+      data: [
+          ['2006', 929000],
+          ['2007', 960000],
+          ['2008', 969000],
+          ['2009', 971579],
+          ['2010', 1225740],
+          ['2011', 1263779],
+          ['2012', 1299700],
+          ['2013', 1340000],
+          ['2014', 1370100],
+          ['2015', 1392500],
+          ['2016', 1404000]
+      ],
+      dataLabels: {
+          enabled: true,
+          rotation: 0,
+          color: 'black',
+          align: 'center',
+          format: '{point.y:.1f}', // one decimal
+          y: 10, // 10 pixels down from the top
+          style: {
+              fontSize: '13px',
+              fontFamily: 'Verdana, sans-serif'
+          }
+      }
+  }]
+});
+  </script>
+</html>

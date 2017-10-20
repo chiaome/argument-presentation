@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+  </head>
+  <body>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+  </body>
+  <script type="text/javascript">
+
+// Radialize the colors
+Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+  return {
+      radialGradient: {
+          cx: 0.5,
+          cy: 0.3,
+          r: 0.7
+      },
+      stops: [
+          [0, color],
+          [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+      ]
+  };
+});
+
+// Build the chart
+Highcharts.chart('container', {
+  chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+  },
+  title: {
+      text: '<span style="font-size:30px; font-weight:900">What is the risk that worries Americans most with driverless cars?</span>'
+  },
+  tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+      pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+              enabled: true,
+              format: '<span style="font-size:20px; font-weight:900">{point.name}: {point.percentage:.1f} %</span>',
+              style: {
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+              },
+              connectorColor: 'silver'
+          }
+      }
+  },
+  credits: {
+    enabled: false
+},
+  series: [{
+      name: 'Brands',
+      data: [
+        {
+            name: 'Hackers',
+            y: 75,
+            sliced: true,
+            selected: true
+        },
+        { name: 'other', y: 25 }
+
+      ]
+  }]
+});
+  </script>
+</html>
